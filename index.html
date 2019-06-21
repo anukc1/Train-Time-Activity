@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train Schedule</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Firebase References -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+    <!-- Moment.js Reference -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+    <link rel="stylesheet" href="Assets/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row one my-2">
+            <div class="col-md-12">
+
+                <h1>Train Schedule</h1>
+                <h3>Never miss your ride, be informed.</h3>
+            </div>
+        </div>
+
+
+        <div class="row two border border-info rounded-top mt-2 bg-dark text-light">
+
+            <div class="col-md-12 header">
+                <h4>Current Schedule</h4>
+                <h4 id="currentTime"></h4>
+
+            </div>
+        </div>
+
+        <div class="row three border border-info rounded mb-3">
+            <table class="table table-hover" id="trainTable">
+                <thead>
+                    <tr>
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Frequency(min)</th>
+                        <th scope="col">Next Arrival</th>
+                        <th scope="col">Mniutes Away</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row four border border-info rounded-top mt-2 bg-dark text-light">
+
+            <div class="col-md-12 header">
+                <h4>Add Train</h4>
+            </div>
+
+        </div>
+
+        <div class="row five border border-info rounded">
+            <div class="col-md-12">
+                <form>
+                    <div class="form-group">
+                        <label for="TrainNameInput">Train Name</label>
+                        <input type="text" class="train-control" id="TrainName">
+                    </div>
+                    <div class="form-group">
+                        <label for="DestinationInput">Destination</label>
+                        <input type="text" class="train-control" id="Destination">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="FirstTrainTimeInput">First Train time(HH:mm-military time)</label>
+                        <input type="text" class="train-control" id="MilitaryTime">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="FrequencyInput">Frequency</label>
+                        <input type="text" class="train-control" id="Frequency">
+                    </div>
+                    <button type="submit" class="btn bg-info text-white" id="submitbtn">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="Assets/script.js"></script>
+</body>
+
+</html>
