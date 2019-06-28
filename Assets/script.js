@@ -1,5 +1,4 @@
 
-
 var currentTime = moment(currentTime).format("hh:mm:ss");
 $("#currentTime").append(currentTime);
 
@@ -34,19 +33,25 @@ var firebaseConfig = {
         
     };
 
-    database.ref().push(newTrain);
+ if( !$("#TrainName").val() || !$("#Destination").val() || !$("#MilitaryTime").val() || !$("#Frequency").val()) {
 
-    console.log(newTrain.name);
-    console.log(newTrain.place);
-    console.log(newTrain.howOften);
-    console.log(newTrain.howOften);
+  alert("Input cannot be left blank");
+ }
+ else {
+
+  database.ref().push(newTrain);
+
     
-   alert(" Your train's been added");
+  alert(" Your train's been added");
 
-   $("#TrainName").val("");
-   $("#Destination").val("");
-   $("#MilitaryTime").val("");
-   $("#Frequency").val("");
+  $("#TrainName").val("");
+  $("#Destination").val("");
+  $("#MilitaryTime").val("");
+  $("#Frequency").val("");
+
+ }
+ 
+   
   });
 
   database.ref().on("child_added", function(childSnapshot) {
